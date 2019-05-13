@@ -17,6 +17,7 @@ public class UserDAOImpl implements UserDAO {
 		this.sessionFactory = sessionFactory;
 	}
 
+	// Создание запросов к бд
 	@Override
 	public List<User> allUsers(){
 		Session session = sessionFactory.getCurrentSession();
@@ -47,4 +48,13 @@ public class UserDAOImpl implements UserDAO {
 		Session session = sessionFactory.getCurrentSession();
 		return session.get(User.class, id);
 	}
+
+	@Override
+	public List<User> sortByDateBirth(){
+		Session session = sessionFactory.getCurrentSession();
+		return session.createQuery("FROM User ORDER BY  dateBirth ASC").list();
+	}
+
+
+
 }

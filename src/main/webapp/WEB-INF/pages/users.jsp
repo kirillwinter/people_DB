@@ -46,5 +46,8 @@
 <c:url value="/add" var="add"/>
 <a href="${add}">Add new user</a>
 
+<c:url value="/sort" var="sort"/>
+<a href="${sort}">Sort users</a>
+
 </body>
 </html>

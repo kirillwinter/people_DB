@@ -51,8 +51,8 @@
         <input type="date" name="dateBirth" required id="dateBirth" value="${user.dateBirth}">
         <br/>
         <label for="sex">Sex</label><Br>
-        <input type="radio" name="sex" id="sex" value="true" checked>Male<Br>
-        <input type="radio" name="sex" id="sex" value="false">Female<Br>
+        <input type="radio" name="sex" id="sex" value="Male" checked>Male<Br>
+        <input type="radio" name="sex" id="sex" value="Female">Female<Br>
         <br/>
 
 

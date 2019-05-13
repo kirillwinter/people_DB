@@ -25,7 +25,7 @@ public class User {
 	private Date dateBirth;
 
 	@Column(name = "sex")
-	private boolean sex;
+	private Sex sex;
 
 
 	public int getId() {
@@ -68,22 +68,11 @@ public class User {
 		this.dateBirth = dateBirth;
 	}
 
-	public boolean isSex() {
-		return sex;
+	public String getSex() {
+		return this.sex.name();
 	}
 
-	public void setSex(boolean sex) {
-		this.sex = sex;
-	}
-
-	@Override
-	public String toString() {
-		return "User{" +
-				"firstName='" + firstName + '\'' +
-				", middleName='" + middleName + '\'' +
-				", lastName='" + lastName + '\'' +
-				", dateBirth=" + dateBirth +
-				", sex=" + sex +
-				'}';
+	public void setSex(String sex) {
+		this.sex = Sex.valueOf(sex);
 	}
 }

@@ -76,4 +76,16 @@ public class UserController {
 		return modelAndView;
 	}
 
+	/*Получение списка юзеров*/
+	@RequestMapping(value = "/sort", method = RequestMethod.GET)
+	public ModelAndView sortByDateBerth(){
+		List<User> users = userService.sortByDateBirth();
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.setViewName("users");
+		modelAndView.addObject("userList", users);
+		return modelAndView;
+	}
+
+
+
 }

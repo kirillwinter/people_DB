@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import system.dao.UserDAO;
-import system.dao.UserDAOImpl;
 import system.model.User;
 
 import java.util.List;
@@ -49,8 +48,9 @@ public class UserServiceImpl implements UserService{
 		return userDAO.getById(id);
 	}
 
-//	@Transactional
-//	public List<User> sortByDateUsers() {
-//		return userDAO.allUsers();
-//	}
+	@Override
+	@Transactional
+	public List<User> sortByDateBirth() {
+		return userDAO.sortByDateBirth();
+	}
 }
