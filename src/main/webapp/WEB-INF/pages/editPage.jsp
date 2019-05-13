@@ -19,7 +19,7 @@
 <body>
 
     <c:if test="${empty user.firstName}">
-       <h2>Add User</h2>
+        <h2>Add User</h2>
     </c:if>
     <c:if test="${!empty user.firstName}">
         <h2>Edit User</h2>
@@ -39,25 +39,23 @@
         </c:if>
         <br/>
         <label for="firstName">First name</label>
-        <input type="text" name="firstName" id="firstName">
+        <input type="text" name="firstName" required pattern="^[a-zA-Z]+$" id="firstName" value="${user.firstName}">
         <br/>
         <label for="middleName">Middle name</label>
-        <input type="text" name="middleName" id="middleName">
+        <input type="text" name="middleName" required pattern="^[a-zA-Z]+$" id="middleName" value="${user.middleName}">
         <br/>
         <label for="lastName">Last name</label>
-        <input type="text" name="lastName" id="lastName">
+        <input type="text" name="lastName" required pattern="^[a-zA-Z]+$" id="lastName" value="${user.lastName}">
         <br/>
         <label for="dateBirth">Date birth</label>
-        <input type="date" name="dateBirth" id="dateBirth">
+        <input type="date" name="dateBirth" required id="dateBirth" value="${user.dateBirth}">
         <br/>
         <label for="sex">Sex</label><Br>
         <input type="radio" name="sex" id="sex" value="true" checked>Male<Br>
         <input type="radio" name="sex" id="sex" value="false">Female<Br>
-
-
-<%--        <label for="sex">Sex</label>--%>
-<%--        <input type="range" name="sex" id="sex">--%>
         <br/>
+
+
 
         <c:if test="${empty user.firstName}">
             <input type="submit" value="Add new user">
@@ -66,13 +64,8 @@
             <input type="submit" value="Edit user">
         </c:if>
 
-    </form>
-
-
-<%--    <h1>Edit user</h1>--%>
-<%--    <c:url value="/edit" var="var"/>--%>
-<%--    <form action="${var}" method="post">--%>
-<%--        <input type="hidden" name="id" value="${user.id}">--%>
+        <c:url value="/" var="users"/>
+        <a href="${users}">back</a>
 
     </form>
 

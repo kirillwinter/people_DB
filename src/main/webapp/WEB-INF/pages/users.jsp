@@ -10,36 +10,37 @@
 <html>
 <head>
     <title>Users</title>
+    <link href="<c:url value="/res/style.css"/>" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 
 
-    <h1>Users</h1>
-    <table>
+<h1>Users</h1>
+<table>
+    <tr>
+        <th>id</th>
+        <th>First name</th>
+        <th>Middle name</th>
+        <th>Last name</th>
+        <th>Date birth</th>
+        <th>Sex</th>
+        <th>Action</th>
+    </tr>
+    <c:forEach var="user" items="${userList}">
         <tr>
-            <th>id</th>
-            <th>First name</th>
-            <th>Middle name</th>
-            <th>Last name</th>
-            <th>Date birth</th>
-            <th>Sex</th>
-            <th>Action</th>
+            <td>${user.id}</td>
+            <td>${user.firstName}</td>
+            <td>${user.middleName}</td>
+            <td>${user.lastName}</td>
+            <td>${user.dateBirth}</td>
+            <td>${user.sex}</td>
+            <td>
+                <a href="/edit/${user.id}">edit</a>
+                <a href="/delete/${user.id}">delete</a>
+            </td>
         </tr>
-        <c:forEach var="user" items="${userList}">
-            <tr>
-                <td>${user.id}</td>
-                <td>${user.firstName}</td>
-                <td>${user.middleName}</td>
-                <td>${user.lastName}</td>
-                <td>${user.dateBirth}</td>
-                <td>${user.sex}</td>
-                <td>
-                    <a href="/edit/${user.id}">edit</a>
-                    <a href="/delete/${user.id}">delete</a>
-                </td>
-            </tr>
-        </c:forEach>
-    </table>
+    </c:forEach>
+</table>
 
 <h2>Add</h2>
 <c:url value="/add" var="add"/>
