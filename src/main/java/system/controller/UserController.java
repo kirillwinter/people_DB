@@ -39,16 +39,6 @@ public class UserController {
 		return modelAndView;
 	}
 
-//	@RequestMapping(value = "/api/user/{id}", method = RequestMethod.GET)
-//	public String apiGetUserData(@PathVariable("id") int id){
-//		User user = userService.getById(id);
-////		ModelAndView modelAndView = new ModelAndView();
-////		modelAndView.setViewName("editPage");
-////		modelAndView.addObject("user", userService.getById(id));
-//
-//		return "Hello World";
-//	}
-
 	/*Изменение  POST*/
 	@RequestMapping(value = "/edit", method = RequestMethod.POST)
 	public ModelAndView editUser(@ModelAttribute("user") User user){

@@ -15,6 +15,7 @@
     <c:if test="${!empty user.firstName}">
         <title>Edit User</title>
     </c:if>
+    <link href="<c:url value="/res/style.css"/>" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 
@@ -37,39 +38,40 @@
         <c:if test="${!empty user.firstName}">
             <input type="hidden" name="id" value="${user.id}">
         </c:if>
-        <br/>
-        <label for="firstName">First name</label>
-        <input type="text" name="firstName" required pattern="^[a-zA-Z]+$" id="firstName" value="${user.firstName}">
-        <br/>
-        <label for="middleName">Middle name</label>
-        <input type="text" name="middleName" required pattern="^[a-zA-Z]+$" id="middleName" value="${user.middleName}">
-        <br/>
-        <label for="lastName">Last name</label>
-        <input type="text" name="lastName" required pattern="^[a-zA-Z]+$" id="lastName" value="${user.lastName}">
-        <br/>
-        <label for="dateBirth">Date birth</label>
-        <input type="date" name="dateBirth" required id="dateBirth" value="${user.dateBirth}">
-        <br/>
-        <label for="sex">Sex</label><Br>
-        <input type="radio" name="sex" id="sex" value="Male" checked>Male<Br>
-        <input type="radio" name="sex" id="sex" value="Female">Female<Br>
-        <br/>
 
+        <div class="edit_list">
+            <div style="float: left; width: 100px; height: 100px;" >
+                <label for="firstName">First name</label><Br>
+                <label for="middleName">Middle name</label><Br>
+                <label for="lastName">Last name</label><Br>
+                <label for="dateBirth">Date birth</label><Br>
+                <label for="sex">Sex</label><Br>
 
+            </div>
+            <div>
+                <input type="text" name="firstName" required pattern="^[a-zA-Z]+$" id="firstName" value="${user.firstName}"><Br>
+                <input type="text" name="middleName" required pattern="^[a-zA-Z]+$" id="middleName" value="${user.middleName}"><Br>
+                <input type="text" name="lastName" required pattern="^[a-zA-Z]+$" id="lastName" value="${user.lastName}"><Br>
+                <input type="date" name="dateBirth" required id="dateBirth" value="${user.dateBirth}"><Br>
+
+                <input type="radio" name="sex" id="sex" value="Male" checked>Male<Br>
+                <input type="radio" name="sex" id="sex" value="Female">Female<Br>
+            </div>
+        </div>
+
+        <br/>
 
         <c:if test="${empty user.firstName}">
-            <input type="submit" value="Add new user">
+            <input type="submit" value="Add new user" class="button">
         </c:if>
         <c:if test="${!empty user.firstName}">
-            <input type="submit" value="Edit user">
+            <input type="submit" value="Edit user" class="button">
         </c:if>
 
         <c:url value="/" var="users"/>
-        <a href="${users}">back</a>
+        <a href="${users}" class="button">back</a>
 
     </form>
-
-
 
 </body>
 </html>
