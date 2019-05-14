@@ -1,5 +1,7 @@
 package system.model;
 
+import org.json.JSONObject;
+
 import javax.persistence.*;
 import java.sql.Date;
 
@@ -74,5 +76,17 @@ public class User {
 
 	public void setSex(String sex) {
 		this.sex = Sex.valueOf(sex);
+	}
+
+	public String getJSONString() {
+		JSONObject resultJson = new JSONObject();
+
+		resultJson.put("id", this.id);
+		resultJson.put("first_name", this.firstName);
+		resultJson.put("middle_name", this.middleName);
+		resultJson.put("last_name", this.lastName);
+		resultJson.put("date", this.dateBirth);
+		resultJson.put("sex", this.sex);
+		return resultJson.toString();
 	}
 }

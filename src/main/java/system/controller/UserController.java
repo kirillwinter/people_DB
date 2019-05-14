@@ -29,9 +29,8 @@ public class UserController {
 		return modelAndView;
 	}
 
-
 	/*Изменение  GET*/
-	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "/edit/{id}", method = RequestMethod.GET, produces = "application/json")
 	public ModelAndView editPage(@PathVariable("id") int id){
 		User user = userService.getById(id);
 		ModelAndView modelAndView = new ModelAndView();
@@ -39,6 +38,16 @@ public class UserController {
 		modelAndView.addObject("user", userService.getById(id));
 		return modelAndView;
 	}
+
+//	@RequestMapping(value = "/api/user/{id}", method = RequestMethod.GET)
+//	public String apiGetUserData(@PathVariable("id") int id){
+//		User user = userService.getById(id);
+////		ModelAndView modelAndView = new ModelAndView();
+////		modelAndView.setViewName("editPage");
+////		modelAndView.addObject("user", userService.getById(id));
+//
+//		return "Hello World";
+//	}
 
 	/*Изменение  POST*/
 	@RequestMapping(value = "/edit", method = RequestMethod.POST)
@@ -76,7 +85,7 @@ public class UserController {
 		return modelAndView;
 	}
 
-	/*Получение списка юзеров*/
+	/*Сортировка по дате рождения*/
 	@RequestMapping(value = "/sort", method = RequestMethod.GET)
 	public ModelAndView sortByDateBerth(){
 		List<User> users = userService.sortByDateBirth();
@@ -85,7 +94,5 @@ public class UserController {
 		modelAndView.addObject("userList", users);
 		return modelAndView;
 	}
-
-
 
 }
